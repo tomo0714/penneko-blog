@@ -1,11 +1,13 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import { ComponentProps, useState } from "react";
+import { CommonButton } from "src/Common/CommonButton";
 import { CommonCard } from "src/Common/CommonCard";
 import { CommonCardWrapper } from "src/Common/CommonCardWrapper";
+import { CommonInput } from "src/Common/CommonInput";
 import { client } from "src/libs/client";
 
-type IThumbnail = {
+type ThumbnailType = {
   /** サムネイルURL */
   url: string;
   /** 画像高さ */
@@ -20,12 +22,12 @@ export type Blog = {
   /** ブログ本文 */
   body: string;
   /** サムネイル */
-  thumbnail: IThumbnail;
+  thumbnail: ThumbnailType;
 };
 
 type Props = MicroCMSListResponse<Blog>;
 
-/** ホームページ表示コンポーネント */
+/** ホームページコンポーネント */
 const Home: NextPage<Props> = (props) => {
   const [search, setSearch] = useState<MicroCMSListResponse<Blog>>();
   const contents = search ? search.contents : props.contents;
@@ -52,15 +54,9 @@ const Home: NextPage<Props> = (props) => {
   return (
     <>
       <form className="flex gap-x-2" onSubmit={onSubmitSerch}>
-        <input type="text" name="query" className="border border-black px-2" />
-        <button className="border border-black px-2">search</button>
-        <button
-          type="reset"
-          className="border border-black px-2"
-          onClick={onClickReset}
-        >
-          reset
-        </button>
+        <CommonInput type="text" name="query" placeholder="ブログタイトル" />
+        <CommonButton text="検索" />
+        <CommonButton type="reset" onClick={onClickReset} text="クリア" />
       </form>
       <p className="mt-4 text-gray-400">
         {`${search ? "検索結果" : "記事の総数"}: ${totalCount}件`}
