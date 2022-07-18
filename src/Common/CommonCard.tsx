@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { VFC } from "react";
 
-type CommonCardType = {
+type CommonCardProps = {
   /** カードクリック時遷移先URL */
   link: string;
   /** サムネイル画像URL */
@@ -16,8 +16,7 @@ type CommonCardType = {
 };
 
 /** 共通カード用コンポーネント */
-export const CommonCard: VFC<CommonCardType> = (props) => {
-  console.log(props);
+export const CommonCard: VFC<CommonCardProps> = (props) => {
   return (
     <li className="overflow-hidden rounded shadow-lg">
       <Link href={props.link}>
