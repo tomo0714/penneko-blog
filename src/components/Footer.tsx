@@ -6,7 +6,7 @@ export const Footer = () => {
           About
         </h4>
         <p className="mt-10">
-          "Penneko IT Blog"
+          &quot;Penneko IT Blog&quot;
           は、Webフロントエンド開発に関するトピックを発信する技術ブログです。
         </p>
         <p className="mt-5">
