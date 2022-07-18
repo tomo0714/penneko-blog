@@ -3,12 +3,10 @@ import Link from "next/link";
 import { VFC } from "react";
 
 type CommonCardType = {
-  /** コンテンツid */
-  id: string;
   /** カードクリック時遷移先URL */
   link: string;
   /** サムネイル画像URL */
-  thumbnailUrl?: string;
+  href: string;
   /** alt属性 */
   alt: string;
   /** 公開日時 */
@@ -19,16 +17,13 @@ type CommonCardType = {
 
 /** 共通カード用コンポーネント */
 export const CommonCard: VFC<CommonCardType> = (props) => {
+  console.log(props);
   return (
-    <li key={props.id} className="overflow-hidden rounded shadow-lg">
+    <li className="overflow-hidden rounded shadow-lg">
       <Link href={props.link}>
         <a>
           <figure className="mb-5">
-            <img
-              className="w-full"
-              src={props.thumbnailUrl}
-              alt={props.title}
-            />
+            <img className="w-full" src={props.href} alt={props.title} />
           </figure>
           <div className="mb-2 px-6 text-gray-400">
             <span>{dayjs(props.publishedAt).format("YYYY.MM.DD")}</span>

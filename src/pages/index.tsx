@@ -20,7 +20,7 @@ export type Blog = {
   /** ブログ本文 */
   body: string;
   /** サムネイル */
-  thumbnail?: IThumbnail;
+  thumbnail: IThumbnail;
 };
 
 type Props = MicroCMSListResponse<Blog>;
@@ -69,9 +69,9 @@ const Home: NextPage<Props> = (props) => {
         {contents.map((content) => {
           return (
             <CommonCard
-              id={content.id}
+              key={content.id}
               link={`blog/${content.id}`}
-              thumbnailUrl={content.thumbnail?.url}
+              href={content.thumbnail.url}
               alt={content.title}
               publishedAt={content.publishedAt}
               title={content.title}
