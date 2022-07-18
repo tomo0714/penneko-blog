@@ -2,6 +2,7 @@ import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import { ComponentProps, useState } from "react";
 import { CommonCard } from "src/Common/CommonCard";
+import { CommonCardWrapper } from "src/Common/CommonCardWrapper";
 import { client } from "src/libs/client";
 
 type IThumbnail = {
@@ -64,7 +65,7 @@ const Home: NextPage<Props> = (props) => {
       <p className="mt-4 text-gray-400">
         {`${search ? "検索結果" : "記事の総数"}: ${totalCount}件`}
       </p>
-      <ul className="mt-4 grid grid-cols-[repeat(auto-fit,32%)] gap-[2%]">
+      <CommonCardWrapper>
         {contents.map((content) => {
           return (
             <CommonCard
@@ -77,7 +78,7 @@ const Home: NextPage<Props> = (props) => {
             />
           );
         })}
-      </ul>
+      </CommonCardWrapper>
     </>
   );
 };
