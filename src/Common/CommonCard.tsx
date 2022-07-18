@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import { link } from "fs";
 import Link from "next/link";
 import { VFC } from "react";
 
@@ -24,12 +23,18 @@ export const CommonCard: VFC<CommonCardType> = (props) => {
     <li key={props.id} className="overflow-hidden rounded shadow-lg">
       <Link href={props.link}>
         <a>
-          <img className="w-full" src={props.thumbnailUrl} alt={props.title} />
-          <div>
+          <figure className="mb-5">
+            <img
+              className="w-full"
+              src={props.thumbnailUrl}
+              alt={props.title}
+            />
+          </figure>
+          <div className="mb-2 px-6 text-gray-400">
             <span>{dayjs(props.publishedAt).format("YYYY.MM.DD")}</span>
           </div>
-          <div>
-            <h2>{props.title}</h2>
+          <div className="mb-6 px-6 pb-6">
+            <h2 className="text-lg font-bold">{props.title}</h2>
           </div>
         </a>
       </Link>
