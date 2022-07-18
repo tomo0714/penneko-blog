@@ -6,9 +6,10 @@ import { Blog } from "src/pages";
 
 type Props = Blog & MicroCMSContentId & MicroCMSDate;
 
+/** ブログ詳細ページコンポーネント */
 const BlogId: NextPage<Props> = (props) => {
   return (
-    <div>
+    <>
       <h1 className="text-4xl font-bold">{props.title}</h1>
       <time className="mt-2 block" dateTime={props.publishedAt}>
         {dayjs(props.publishedAt).format("YYYY年MM月DD日")}
@@ -17,7 +18,7 @@ const BlogId: NextPage<Props> = (props) => {
         className="prose prose-sm mt-8"
         dangerouslySetInnerHTML={{ __html: props.body }}
       />
-    </div>
+    </>
   );
 };
 
