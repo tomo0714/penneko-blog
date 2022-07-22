@@ -1,10 +1,10 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import { ComponentProps, useState } from "react";
-import { CommonButton } from "src/Common/CommonButton";
-import { CommonCard } from "src/Common/CommonCard";
-import { CommonCardWrapper } from "src/Common/CommonCardWrapper";
-import { CommonInput } from "src/Common/CommonInput";
+import { CommonButton } from "src/components/CommonButton";
+import { CommonCard } from "src/components/CommonCard";
+import { CommonCardWrapper } from "src/components/CommonCardWrapper";
+import { CommonInput } from "src/components/CommonInput";
 import { client } from "src/libs/client";
 
 type ThumbnailType = {

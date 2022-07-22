@@ -1,8 +1,11 @@
 import { VFC } from "react";
 
 type CommonInputProps = {
+  /** フォームタイプ */
   type: string;
+  /** フォーム名 */
   name: string;
+  /** フォームSプレイスホルダー */
   placeholder: string;
 };
 
