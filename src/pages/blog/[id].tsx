@@ -2,14 +2,17 @@ import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { BlogContent } from "src/components/BlogContent";
 import { BlogDetailWrapper } from "src/components/BlogDetailWrapper";
-import { SideNav } from "src/components/SideNav";
 import { client } from "src/libs/client";
 import { Blog } from "src/pages";
+import { renderToc } from "src/libs/render-toc";
+import { TableOfContent } from "src/components/TableOfContent";
 
 type BlogDetailProps = Blog & MicroCMSContentId & MicroCMSDate;
 
 /** ブログ詳細ページコンポーネント */
 const BlogDetail: NextPage<BlogDetailProps> = (props) => {
+  const toc = renderToc(props.body);
+
   return (
     <BlogDetailWrapper>
       <BlogContent
@@ -18,7 +21,7 @@ const BlogDetail: NextPage<BlogDetailProps> = (props) => {
         publishedAt={props.publishedAt}
         body={props.body}
       />
-      <SideNav />
+      <TableOfContent toc={toc} />
     </BlogDetailWrapper>
   );
 };
