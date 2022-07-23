@@ -1,10 +1,9 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import { ComponentProps, useState } from "react";
-import { CommonButton } from "src/components/CommonButton";
 import { CommonCard } from "src/components/CommonCard";
 import { CommonCardWrapper } from "src/components/CommonCardWrapper";
-import { CommonInput } from "src/components/CommonInput";
+import { SerchForm } from "src/components/SerchForm";
 import { client } from "src/libs/client";
 
 type ThumbnailType = {
@@ -27,7 +26,7 @@ export type Blog = {
 
 type Props = MicroCMSListResponse<Blog>;
 
-/** ホームページコンポーネント */
+/** Topページコンテナ */
 const Home: NextPage<Props> = (props) => {
   const [search, setSearch] = useState<MicroCMSListResponse<Blog>>();
   const contents = search ? search.contents : props.contents;
@@ -53,14 +52,12 @@ const Home: NextPage<Props> = (props) => {
 
   return (
     <>
-      <form className="flex gap-x-2" onSubmit={onSubmitSerch}>
-        <CommonInput type="text" name="query" placeholder="ブログタイトル" />
-        <CommonButton text="検索" />
-        <CommonButton type="reset" onClick={onClickReset} text="クリア" />
-      </form>
-      <p className="mt-4 text-gray-400">
-        {`${search ? "検索結果" : "記事の総数"}: ${totalCount}件`}
-      </p>
+      <SerchForm
+        search={search}
+        totalCount={totalCount}
+        onSubmitSerch={onSubmitSerch}
+        onClickReset={onClickReset}
+      />
       <CommonCardWrapper>
         {contents.map((content) => {
           return (
