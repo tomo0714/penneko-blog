@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { VFC } from "react";
 
 type TocType = {
   /** 目次タイトル */
-  text: any;
+  text: string;
   /** 目次ID */
   id: string;
 };
@@ -19,7 +20,13 @@ export const TableOfContent: VFC<SideNavProps> = (props) => {
       <h2 className="flex h-16 items-center p-6 shadow-lg">目次</h2>
       <ul className="py-8 px-6">
         {props.toc.map((data) => {
-          return <li key={data.id}>{data.text}</li>;
+          return (
+            <li>
+              <Link key={data.id} href={`#${data.id}`}>
+                <a>{data.text}</a>
+              </Link>
+            </li>
+          );
         })}
       </ul>
     </aside>
