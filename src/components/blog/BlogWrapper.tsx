@@ -1,9 +1,9 @@
 import { ReactNode, VFC } from "react";
 
-type BlogDetailWrapperProps = {
+type BlogWrapperProps = {
   children: ReactNode;
 };
 
-export const BlogDetailWrapper: VFC<BlogDetailWrapperProps> = (props) => {
+export const BlogWrapper: VFC<BlogWrapperProps> = (props) => {
   return <div className="mt-10 flex justify-between">{props.children}</div>;
 };

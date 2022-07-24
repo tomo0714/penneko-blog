@@ -1,9 +1,7 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import { ComponentProps, useState } from "react";
-import { CommonCard } from "src/components/CommonCard";
-import { CommonCardWrapper } from "src/components/CommonCardWrapper";
-import { SerchForm } from "src/components/SerchForm";
+import { TopPage } from "src/components/top/TopPage";
 import { client } from "src/libs/client";
 
 type ThumbnailType = {
@@ -25,6 +23,15 @@ export type Blog = {
 };
 
 type Props = MicroCMSListResponse<Blog>;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const data = await client.getList<Blog>({
+    endpoint: "blog",
+  });
+  return {
+    props: data,
+  };
+};
 
 /** Topページコンテナ */
 const Home: NextPage<Props> = (props) => {
@@ -51,38 +58,14 @@ const Home: NextPage<Props> = (props) => {
   };
 
   return (
-    <>
-      <SerchForm
-        search={search}
-        totalCount={totalCount}
-        onSubmitSerch={onSubmitSerch}
-        onClickReset={onClickReset}
-      />
-      <CommonCardWrapper>
-        {contents.map((content) => {
-          return (
-            <CommonCard
-              key={content.id}
-              link={`blog/${content.id}`}
-              href={content.thumbnail.url}
-              alt={content.title}
-              publishedAt={content.publishedAt}
-              title={content.title}
-            />
-          );
-        })}
-      </CommonCardWrapper>
-    </>
+    <TopPage
+      search={search}
+      totalCount={totalCount}
+      onSubmitSerch={onSubmitSerch}
+      onClickReset={onClickReset}
+      contents={contents}
+    />
   );
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const data = await client.getList<Blog>({
-    endpoint: "blog",
-  });
-  return {
-    props: data,
-  };
 };
 
 export default Home;

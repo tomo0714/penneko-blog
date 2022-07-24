@@ -1,7 +1,7 @@
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import { ComponentProps, VFC } from "react";
-import { CommonButton } from "src/components/CommonButton";
-import { CommonInput } from "src/components/CommonInput";
+import { CommonButton } from "src/components/Common/CommonButton";
+import { CommonInput } from "src/components/Common/CommonInput";
 import { Blog } from "src/pages";
 
 type SerchFormProps = {
