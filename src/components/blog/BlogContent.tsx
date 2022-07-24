@@ -16,7 +16,7 @@ type BlogContentProps = {
 /** ブログ本文表示部分コンポーネント */
 export const BlogContent: VFC<BlogContentProps> = (props) => {
   return (
-    <div className="w-[780px] overflow-hidden shadow-lg">
+    <div className="blogContent w-[780px] overflow-hidden shadow-lg">
       <figure className="relative h-[400px] w-full">
         <Image
           layout="fill"

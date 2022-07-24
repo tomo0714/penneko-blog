@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { client } from "src/libs/client";
 import { Blog } from "src/pages";
-import { JSDOM } from "jsdom";
 import { BlogPage } from "src/components/blog/BlogPage";
+import tocbot from "tocbot";
 
 export type Toc = {
   text: string | null;
@@ -23,29 +24,17 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   };
 };
 
+/** ブログ内容をSSG */
 export const getStaticProps: GetStaticProps<BlogProps, { id: string }> = async (
   ctx
 ) => {
   if (!ctx.params) {
     return { notFound: true };
   }
-
   const data = await client.getListDetail<Blog>({
     endpoint: "blog",
     contentId: ctx.params.id,
   });
-
-  /** ブログ本文から見出しタグを抜き出す */
-  const dom = new JSDOM(data.body);
-  const toc: Toc[] = [];
-  dom.window.document.querySelectorAll("h1,h2,h3").forEach((heading) => {
-    toc.push({
-      id: heading.id,
-      text: heading.textContent,
-      name: heading.tagName,
-    });
-  });
-
   return {
     props: data,
   };
@@ -53,6 +42,16 @@ export const getStaticProps: GetStaticProps<BlogProps, { id: string }> = async (
 
 /** ブログ詳細ページコンテナ */
 const Blog: NextPage<BlogProps> = (props) => {
+  /** ブログのh2,h3タグを抽出 */
+  useEffect(() => {
+    tocbot.init({
+      tocSelector: ".toc",
+      contentSelector: ".blogContent",
+      headingSelector: "h2, h3",
+    });
+    return () => tocbot.destroy();
+  }, []);
+
   return (
     <BlogPage
       src={props.thumbnail.url}
