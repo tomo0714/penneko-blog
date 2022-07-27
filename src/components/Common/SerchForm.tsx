@@ -15,6 +15,7 @@ type SerchFormProps = {
   onClickReset: ComponentProps<"button">["onClick"];
 };
 
+/** ブログ検索フォームコンポーネント */
 export const SerchForm: VFC<SerchFormProps> = (props) => {
   return (
     <>

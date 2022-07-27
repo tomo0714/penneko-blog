@@ -9,6 +9,7 @@ type CommonInputProps = {
   placeholder: string;
 };
 
+/** 共通フォームコンポーネント */
 export const CommonInput: VFC<CommonInputProps> = (props) => {
   return (
     <input

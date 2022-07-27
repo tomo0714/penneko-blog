@@ -9,6 +9,7 @@ type CommonButtonProps = {
   text: string;
 };
 
+/** 共通ボタンコンポーネント */
 export const CommonButton: VFC<CommonButtonProps> = (props) => {
   return (
     <button

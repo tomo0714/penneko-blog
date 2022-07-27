@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+/** 共通ヘッダーコンポーネント */
 export const Header = () => {
   return (
     <header className="py-8">

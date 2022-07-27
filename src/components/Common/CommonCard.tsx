@@ -16,7 +16,7 @@ type CommonCardProps = {
   title: string;
 };
 
-/** 共通カード用コンポーネント */
+/** 共通カードコンポーネント */
 export const CommonCard: VFC<CommonCardProps> = (props) => {
   return (
     <li className="overflow-hidden shadow-lg">

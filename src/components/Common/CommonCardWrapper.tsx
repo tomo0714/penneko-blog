@@ -4,6 +4,7 @@ type CommonCardWerapperProps = {
   children: ReactNode;
 };
 
+/** 共通カードラッパーコンポーネント */
 export const CommonCardWrapper: VFC<CommonCardWerapperProps> = (props) => {
   return (
     <ul className="mt-4 grid grid-cols-[repeat(auto-fit,32%)] gap-[2%]">
