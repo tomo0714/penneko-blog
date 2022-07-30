@@ -14,7 +14,7 @@ export const CommonButton: VFC<CommonButtonProps> = (props) => {
   return (
     <button
       type={props.type}
-      className="rounded border border-solid border-gray-600 px-2 text-gray-600"
+      className="rounded border border-solid border-gray-400 px-2 text-sm text-gray-400"
       onClick={props.onClick}
     >
       {props.text}

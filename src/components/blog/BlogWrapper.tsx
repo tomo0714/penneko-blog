@@ -6,5 +6,9 @@ type BlogWrapperProps = {
 
 /** ブログページラッパーコンポーネント */
 export const BlogWrapper: VFC<BlogWrapperProps> = (props) => {
-  return <div className="mt-10 flex justify-between">{props.children}</div>;
+  return (
+    <div className="mt-10 lg:flex lg:justify-between lg:gap-x-5">
+      {props.children}
+    </div>
+  );
 };
