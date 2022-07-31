@@ -15,6 +15,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css"
         />
         <link rel="icon" href="/favicon.png" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
       </Head>
       <Header />
       <main>

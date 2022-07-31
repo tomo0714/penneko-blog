@@ -15,7 +15,7 @@ export const CommonInput: VFC<CommonInputProps> = (props) => {
     <input
       type={props.type}
       name={props.name}
-      className="w-[150px] rounded border border-solid border-gray-600 px-2 text-sm"
+      className="w-full"
       placeholder={props.placeholder}
     />
   );

@@ -16,8 +16,6 @@ type TopPageProps = {
   totalCount: number;
   /** 検索ボタンクリック時処理 */
   onSubmitSerch: ComponentProps<"form">["onSubmit"];
-  /** リセットボタンクリック時処理 */
-  onClickReset: ComponentProps<"button">["onClick"];
   /** ブログコンテンツ */
   contents: (Blog & MicroCMSContentId & MicroCMSDate)[];
 };
@@ -30,7 +28,6 @@ export const TopPage: VFC<TopPageProps> = (props) => {
         search={props.search}
         totalCount={props.totalCount}
         onSubmitSerch={props.onSubmitSerch}
-        onClickReset={props.onClickReset}
       />
       <CommonCardWrapper>
         {props.contents.map((content) => {

@@ -39,7 +39,7 @@ const Home: NextPage<Props> = (props) => {
   const contents = search ? search.contents : props.contents;
   const totalCount = search ? search.totalCount : props.totalCount;
 
-  /** serchボタンクリック時処理 */
+  /** 検索時処理 */
   const onSubmitSerch: ComponentProps<"form">["onSubmit"] = async (event) => {
     event.preventDefault();
     const q = event.currentTarget.query.value;
@@ -52,17 +52,11 @@ const Home: NextPage<Props> = (props) => {
     setSearch(json);
   };
 
-  /** resetボタンクリック時処理 */
-  const onClickReset: ComponentProps<"button">["onClick"] = () => {
-    setSearch(undefined);
-  };
-
   return (
     <TopPage
       search={search}
       totalCount={totalCount}
       onSubmitSerch={onSubmitSerch}
-      onClickReset={onClickReset}
       contents={contents}
     />
   );
