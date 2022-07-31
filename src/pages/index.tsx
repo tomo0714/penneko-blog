@@ -37,7 +37,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const Home: NextPage<Props> = (props) => {
   const [search, setSearch] = useState<MicroCMSListResponse<Blog>>();
   const contents = search ? search.contents : props.contents;
-  const totalCount = search ? search.totalCount : props.totalCount;
 
   /** 検索時処理 */
   const onSubmitSerch: ComponentProps<"form">["onSubmit"] = async (event) => {
@@ -52,14 +51,7 @@ const Home: NextPage<Props> = (props) => {
     setSearch(json);
   };
 
-  return (
-    <TopPage
-      search={search}
-      totalCount={totalCount}
-      onSubmitSerch={onSubmitSerch}
-      contents={contents}
-    />
-  );
+  return <TopPage onSubmitSerch={onSubmitSerch} contents={contents} />;
 };
 
 export default Home;

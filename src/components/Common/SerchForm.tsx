@@ -4,10 +4,6 @@ import { CommonInput } from "src/components/Common/CommonInput";
 import { Blog } from "src/pages";
 
 type SerchFormProps = {
-  /** 検索結果 */
-  search?: MicroCMSListResponse<Blog>;
-  /** 記事の総数 */
-  totalCount: number;
   /** 検索ボタンクリック時処理 */
   onSubmitSerch: ComponentProps<"form">["onSubmit"];
 };
@@ -23,9 +19,6 @@ export const SerchForm: VFC<SerchFormProps> = (props) => {
         <span className="material-symbols-outlined">search</span>
         <CommonInput type="text" name="query" placeholder="Search..." />
       </form>
-      <p className="mt-4 text-gray-400">
-        {`${props.search ? "検索結果" : "記事の総数"}: ${props.totalCount}件`}
-      </p>
     </>
   );
 };

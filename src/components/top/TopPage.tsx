@@ -10,10 +10,6 @@ import { SerchForm } from "src/components/Common/SerchForm";
 import { Blog } from "src/pages";
 
 type TopPageProps = {
-  /** 検索結果 */
-  search?: MicroCMSListResponse<Blog>;
-  /** 記事の総数 */
-  totalCount: number;
   /** 検索ボタンクリック時処理 */
   onSubmitSerch: ComponentProps<"form">["onSubmit"];
   /** ブログコンテンツ */
@@ -24,11 +20,7 @@ type TopPageProps = {
 export const TopPage: VFC<TopPageProps> = (props) => {
   return (
     <>
-      <SerchForm
-        search={props.search}
-        totalCount={props.totalCount}
-        onSubmitSerch={props.onSubmitSerch}
-      />
+      <SerchForm onSubmitSerch={props.onSubmitSerch} />
       <CommonCardWrapper>
         {props.contents.map((content) => {
           return (
