@@ -6,5 +6,5 @@ type CommonWrapperProps = {
 
 /** 共通ラッパーコンポーネント */
 export const CommonWrapper: VFC<CommonWrapperProps> = (props) => {
-  return <div className="mx-auto max-w-[1200px] px-8">{props.children}</div>;
+  return <div className="mx-auto max-w-[1200px] px-3">{props.children}</div>;
 };
