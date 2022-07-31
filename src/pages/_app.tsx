@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.css"
         />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <Header />
       <main>
