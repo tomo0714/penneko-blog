@@ -25,7 +25,7 @@ export const BlogContent: VFC<BlogContentProps> = (props) => {
           alt={props.title}
         />
       </figure>
-      <div className="p-10">
+      <div className="p-5 md:p-10">
         <h1 className="text-3xl font-bold">{props.title}</h1>
         <time className="mt-2 block text-gray-400" dateTime={props.publishedAt}>
           {dayjs(props.publishedAt).format("YYYY年MM月DD日")}
