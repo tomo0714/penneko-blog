@@ -20,7 +20,7 @@ export const BlogContent: VFC<BlogContentProps> = (props) => {
       <figure className="relative w-full pt-[56.25%]">
         <Image
           layout="fill"
-          objectFit="fill"
+          objectFit="contain"
           src={props.src}
           alt={props.title}
         />
