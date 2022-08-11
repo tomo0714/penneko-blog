@@ -32,7 +32,7 @@ export const Footer = () => {
         <div className="flex">
           {ICONS.map((data) => {
             return (
-              <Link href={data.link}>
+              <Link href={data.link} key={data.link}>
                 <div className="mr-2 cursor-pointer text-xl text-gray-500">
                   {data.icon}
                 </div>

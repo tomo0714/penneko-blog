@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+import { link } from "fs";
 
 /** 共通ヘッダーコンポーネント */
 export const Header = () => {
@@ -24,7 +25,7 @@ export const Header = () => {
         <div className="hidden md:flex">
           {ICONS.map((data) => {
             return (
-              <Link href={data.link}>
+              <Link href={data.link} key={data.link}>
                 <div className="mr-5 cursor-pointer text-2xl">{data.icon}</div>
               </Link>
             );
