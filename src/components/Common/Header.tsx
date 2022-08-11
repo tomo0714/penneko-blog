@@ -8,6 +8,7 @@ export const Header = () => {
       <Link href="/">
         <a className="m-auto block w-fit">
           <Image src="/Black on Transparent.png" width={500} height={80} />
+          (開発環境)
         </a>
       </Link>
     </header>
