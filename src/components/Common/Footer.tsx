@@ -1,22 +1,45 @@
+import Link from "next/link";
+import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+
 /** 共通フッターコンポーネント */
 export const Footer = () => {
+  const ICONS = [
+    { link: "https://github.com/tomo0714/penneko-blog", icon: <FaGithub /> },
+    { link: "https://twitter.com/714_piano", icon: <FaTwitter /> },
+    {
+      link: "https://z-p15.www.instagram.com/Penneko0714/",
+      icon: <FaInstagram />,
+    },
+  ];
+
   return (
-    <footer className="mt-20">
-      <div className=" bg-zinc-100 py-10 text-center">
-        <h4 className="inline-block border-b-2 border-black pb-2 text-3xl">
+    <footer className="m-auto max-w-[1200px] border-t px-4">
+      {/** About */}
+      <div className="py-10 md:text-center">
+        <h4 className="inline-block border-b-2 border-gray-500 text-xl">
           About
         </h4>
-        <p className="mt-10 px-5">
+        <p className="mt-5">
           &quot;Penneko IT Blog&quot;
           は、Web技術に関するトピックスを配信するブログサイトです。
-        </p>
-        <p className="mt-5 px-5">
-          このサイトはNext.js + Typescript +
-          microCMSで構築しNetlifyから配信しています。
+          <br />
+          このサイトはNext.js + Typescript + microCMSで構築しております
+          <br />
         </p>
       </div>
-      <div className="h-16 bg-black p-5 text-center text-white">
-        &copy;2022 Penneko
+      <div className="flex h-16 p-5">
+        <p className="mr-5 text-gray-500">Copyright &copy;2022 Penneko</p>
+        <div className="flex">
+          {ICONS.map((data) => {
+            return (
+              <Link href={data.link}>
+                <div className="mr-2 cursor-pointer text-xl text-gray-500">
+                  {data.icon}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </footer>
   );

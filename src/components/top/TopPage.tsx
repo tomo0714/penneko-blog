@@ -19,7 +19,7 @@ type TopPageProps = {
 /** トップページコンポーネント */
 export const TopPage: VFC<TopPageProps> = (props) => {
   return (
-    <>
+    <div className="pt-20">
       <SerchForm onSubmitSerch={props.onSubmitSerch} />
       <CommonCardWrapper>
         {props.contents.map((content) => {
@@ -35,6 +35,6 @@ export const TopPage: VFC<TopPageProps> = (props) => {
           );
         })}
       </CommonCardWrapper>
-    </>
+    </div>
   );
 };

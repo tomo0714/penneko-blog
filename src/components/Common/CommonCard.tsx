@@ -19,7 +19,7 @@ type CommonCardProps = {
 /** 共通カードコンポーネント */
 export const CommonCard: VFC<CommonCardProps> = (props) => {
   return (
-    <li className="mb-4 overflow-hidden pb-5 shadow-lg">
+    <li className="mb-4 overflow-hidden rounded-lg bg-white pb-5 shadow-md">
       <Link href={props.link}>
         <a>
           <figure className="relative mb-5 w-full pt-[56.25%]">

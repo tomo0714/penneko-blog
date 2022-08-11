@@ -15,7 +15,7 @@ export const CommonInput: VFC<CommonInputProps> = (props) => {
     <input
       type={props.type}
       name={props.name}
-      className="w-full"
+      className=" w-full"
       placeholder={props.placeholder}
     />
   );
