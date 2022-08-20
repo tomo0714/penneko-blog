@@ -31,7 +31,7 @@ export const BlogContent: VFC<BlogContentProps> = (props) => {
           {dayjs(props.publishedAt).format("YYYY年MM月DD日")}
         </time>
         <article
-          className="prose prose-sm mt-8"
+          className="prose prose-sm mt-8 sm:text-base sm:leading-loose"
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
       </div>
